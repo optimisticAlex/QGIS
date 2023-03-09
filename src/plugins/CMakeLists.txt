@@ -23,3 +23,5 @@ endif()
 
 
 # headers installed in qgis_core target
+
+SUBDIRS (gis_nebenbestimmungen)
