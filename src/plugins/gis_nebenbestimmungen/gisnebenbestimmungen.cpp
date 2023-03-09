@@ -47,16 +47,15 @@ void GisNebenbestimmungen::initGui()
 {
 
   // Create the action for tool
-  mQActionPointer = new QAction( QIcon( ":/gisnebenbestimmungen/gisnebenbestimmungen.png" ), tr( "GIS Nebenbestimmungen" ), this );
-  mQActionPointer->setObjectName( "mQActionPointer" );
+  mQActionPointer = new QAction( QIcon( ":/gisnebenbestimmungen/gisnebenbestimmungen.png" ),"GIS Nebenbestimmungen", this );
+  mQActionPointer->setObjectName( QStringLiteral("mQActionPointer") );
   // Set the what's this text
-  mQActionPointer->setWhatsThis( tr( "Replace this with a short description of what the plugin does" ) );
+  mQActionPointer->setWhatsThis("Erstellt GIS-Nebenbstimmungen konforme ESRI-Shape-Dateien");
   // Connect the action to the run
-  connect( mQActionPointer, SIGNAL( triggered() ), this, SLOT( run() ) );
+  connect( mQActionPointer, &QAction::triggered, this, &GisNebenbestimmungen::run );
   // Add the icon to the toolbar
   mQGisIface->addToolBarIcon( mQActionPointer );
-  mQGisIface->addPluginToMenu( tr( "&GIS Nebenbestimmungen" ), mQActionPointer );
-
+  mQGisIface->addPluginToMenu("&GIS Nebenbestimmungen", mQActionPointer );
 }
 //method defined in interface
 void GisNebenbestimmungen::help()
