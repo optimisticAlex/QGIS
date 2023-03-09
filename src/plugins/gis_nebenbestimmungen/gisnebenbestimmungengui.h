@@ -13,7 +13,7 @@
 #define GisNebenbestimmungenGUI_H
 
 #include <QDialog>
-#include <ui_gisnebenbestimmungenguibase.h>
+#include "ui_gisnebenbestimmungenguibase.h"
 
 /**
 @author Tim Sutton
