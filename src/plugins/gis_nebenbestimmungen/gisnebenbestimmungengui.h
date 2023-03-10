@@ -31,7 +31,6 @@ class GisNebenbestimmungenGui : public QDialog, private Ui::GisNebenbestimmungen
   private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
-    void showHelp();
 
 };
 

@@ -18,7 +18,6 @@
 
 GisNebenbestimmungenGui::GisNebenbestimmungenGui( QWidget *parent, Qt::WindowFlags fl ): QDialog( parent, fl ){
   setupUi( this );
-  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &GisNebenbestimmungenGui::showHelp );
 
   textBrowser->setText("Testitest");
 }
@@ -33,9 +32,5 @@ void GisNebenbestimmungenGui::on_buttonBox_accepted(){
 
 void GisNebenbestimmungenGui::on_buttonBox_rejected(){
   reject();
-}
-
-void GisNebenbestimmungenGui::showHelp(){
-  QgsHelp::openHelp( QStringLiteral( "plugins/plugins.html#GisNebenbestimmungen" ) );
 }
 

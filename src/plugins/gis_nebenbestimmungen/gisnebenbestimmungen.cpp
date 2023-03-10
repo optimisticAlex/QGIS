@@ -1,6 +1,6 @@
 
 
-#include <qgisinterface.h>
+#include "qgisinterface.h"
 #include "qgsguiutils.h"
 
 #include "gisnebenbestimmungen.h"
@@ -10,12 +10,12 @@
 #include <QToolBar>
 
 
-static const QString sName = QObject::tr( "GIS Nebenbestimmungen" );
+static const QString sName = QObject::tr( "GISNebenbestimmungen" );
 static const QString sDescription = QObject::tr( "Erstellt GIS-Nebenbestimmungen konforme ESRI-Shapedateien" );
-static const QString sCategory = QObject::tr( "Plugins" );
+static const QString sCategory = QObject::tr( "Plugin" );
 static const QString sPluginVersion = QObject::tr( "Version 0.1" );
 static const QgisPlugin::PluginType sPluginType = QgisPlugin::UI;
-static const QString sPluginIcon = ":/gisnebenbestimmungen/gisnebenbestimmungen.png";
+static const QString sPluginIcon = QStringLiteral(":/gisnebenbestimmungen/gisnebenbestimmungen.png");
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -102,48 +102,40 @@ void GisNebenbestimmungen::unload()
  * of the plugin class
  */
 // Class factory to return a new instance of the plugin class
-QGISEXTERN QgisPlugin *classFactory( QgisInterface *qgisInterfacePointer )
-{
+QGISEXTERN QgisPlugin *classFactory( QgisInterface *qgisInterfacePointer ){
   return new GisNebenbestimmungen( qgisInterfacePointer );
 }
 // Return the name of the plugin - note that we do not user class members as
 // the class may not yet be insantiated when this method is called.
-QGISEXTERN QString name()
-{
-  return sName;
+QGISEXTERN const QString* name(){
+  return &sName;
 }
 
 // Return the description
-QGISEXTERN QString description()
-{
-  return sDescription;
+QGISEXTERN const QString* description(){
+  return &sDescription;
 }
 
 // Return the category
-QGISEXTERN QString category()
-{
-  return sCategory;
+QGISEXTERN const QString* category(){
+  return &sCategory;
 }
 
 // Return the type (either UI or MapLayer plugin)
-QGISEXTERN int type()
-{
+QGISEXTERN int type(){
   return sPluginType;
 }
 
 // Return the version number for the plugin
-QGISEXTERN QString version()
-{
-  return sPluginVersion;
+QGISEXTERN const QString* version(){
+  return &sPluginVersion;
 }
 
-QGISEXTERN QString icon()
-{
-  return sPluginIcon;
+QGISEXTERN const QString* icon(){
+  return &sPluginIcon;
 }
 
 // Delete ourself
-QGISEXTERN void unload( QgisPlugin *pluginPointer )
-{
+QGISEXTERN void unload( QgisPlugin *pluginPointer ){
   delete pluginPointer;
 }
